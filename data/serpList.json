@@ -1,0 +1,34 @@
+{"serpList":
+  [
+    {
+      "serpKeyword": "drifting tips",
+      "serpUrl": "./data/drifting-tips.json",
+      "key": 0
+    },
+    {
+      "serpKeyword": "drifting games",
+      "serpUrl": "./data/drifting-games.json",
+      "key": 1
+    },
+    {
+      "serpKeyword": "1jz vs 2jz",
+      "serpUrl": "./data/1jz-vs-2jz.json",
+      "key": 2
+    },
+    {
+      "serpKeyword": "best drift cars",
+      "serpUrl": "./data/drift-cars-for-beginners.json",
+      "key": 3
+    },
+    {
+      "serpKeyword": "sr20",
+      "serpUrl": "./data/sr20.json",
+      "key": 4
+    },
+    {
+      "serpKeyword": "daigo saito",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 5
+    }
+  ]
+}

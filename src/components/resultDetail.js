@@ -1,13 +1,13 @@
 import React from 'react';
 import ResultDetailItem from './resultDetailItem';
 
-const ResultDetail = ({serpResults}) => {
-  if (!serpResults) {
+const ResultDetail = ({selectedResult, selectedResultTitle}) => {
+  if (!selectedResult) {
     return <div>Loading...</div>;
   }
 
-  const SerpTitle = "drifting tips";
-  const SerpPositionData = serpResults.map(function(title, value, index) {
+  const SerpTitle = selectedResultTitle;
+  const SerpPositionData = selectedResult.map(function(title, value, index) {
     if (value < 100) {
       return (
         <ResultDetailItem

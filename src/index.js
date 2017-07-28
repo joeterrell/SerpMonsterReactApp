@@ -1,35 +1,48 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import YTSearch from 'youtube-api-search';
-import SearchBar from './components/searchBar';
 import ResultDetail from './components/resultDetail';
-//import VideoList from './components/videoList';
-//const API_KEY = 'AIzaSyBv1-5Quornp1wm2h9K241OSLRrjcgkP48';
+import SerpList from './components/serpList';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      //selectedVideo: null,
-      results: this.fetchSERPResults()
+      selectedResult: this.fetchDefaultDetailedResult(),
+      serpListData: this.fetchSERPList()
     };
-
-    //this.videoSearch('drifting');
   }
 
-  fetchSERPResults() {
-    return require('../data/JSONStub.json');
+  fetchDefaultDetailedResult(key) {
+    if (!key) {
+      key = 0;
+    }
+    const serpData = require('../data/serp-results-data.json');
+    return serpData.serpResults[key];
+  }
+
+  fetchSERPList() {
+    return require('../data/serpList.json');
+  }
+
+  updateDetailedResult(selectedResultKey) {
+    const newResult = this.fetchDefaultDetailedResult(selectedResultKey);
+    this.setState({selectedResult: newResult}); // can't find my "module", path issue
   }
 
   render() {
-    //const videoSearch = _.debounce((term) => { this.videoSearch(term)}, 300);
-
     return (
       <div className='grid-container'>
-        <SearchBar />
-        <ResultDetail serpResults={this.state.results.graph.datasequences[0].datapoints} />
+        <div className="search-bar">
+          <h1>SERP Monster</h1>
+          <p>SERP monster is a React powered SERP data visualation app by Clear Desire. For more information on Clear Desire please visit our <a href="http://www.cleardesire.co.uk">website.</a></p>
+        </div>
+        <ResultDetail selectedResult={this.state.selectedResult.datasequences[0].datapoints} selectedResultTitle={this.state.selectedResult.title} />
+        <h3>Select SERP</h3>
+        <SerpList
+          onResultSelect={selectedResultKey => this.updateDetailedResult(selectedResultKey)}
+          serpListData={this.state.serpListData.serpList} />
       </div>
     );
   }
