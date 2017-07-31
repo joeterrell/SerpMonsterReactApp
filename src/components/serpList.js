@@ -14,7 +14,7 @@ const SerpList = (props) => {
   });
 
   return (
-    <ul className="col-md-4 list-group">
+    <ul className="col-md-3 list-group">
       {SerpItems}
     </ul>
   );

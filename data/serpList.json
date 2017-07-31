@@ -29,6 +29,51 @@
       "serpKeyword": "daigo saito",
       "serpUrl": "./data/daigo-saito.json",
       "key": 5
+    },
+    {
+      "serpKeyword": "toyota soarer drift",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 6
+    },
+    {
+      "serpKeyword": "sr20 tuning guide",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 7
+    },
+    {
+      "serpKeyword": "keiichi tsuchiya ae86",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 8
+    },
+    {
+      "serpKeyword": "240sx s13 drift build",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 9
+    },
+    {
+      "serpKeyword": "1jzgte specs",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 10
+    },
+    {
+      "serpKeyword": "rb20det specs",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 11
+    },
+    {
+      "serpKeyword": "rb26dett vs 2jzgte",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 12
+    },
+    {
+      "serpKeyword": "drifting video",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 13
+    },
+    {
+      "serpKeyword": "drift king",
+      "serpUrl": "./data/daigo-saito.json",
+      "key": 14
     }
   ]
 }

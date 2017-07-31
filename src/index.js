@@ -14,6 +14,8 @@ class App extends Component {
     };
   }
 
+
+
   fetchDefaultDetailedResult(key) {
     if (!key) {
       key = 0;
@@ -34,15 +36,13 @@ class App extends Component {
   render() {
     return (
       <div className='grid-container'>
-        <div className="search-bar">
-          <h1>SERP Monster</h1>
-          <p>SERP monster is a React powered SERP data visualation app by Clear Desire. For more information on Clear Desire please visit our <a href="http://www.cleardesire.co.uk">website.</a></p>
+        <div className="col-md-12">
+          <ResultDetail selectedResult={this.state.selectedResult.datasequences[0].datapoints} selectedResultTitle={this.state.selectedResult.title} />
+          <SerpList
+            onResultSelect={selectedResultKey => this.updateDetailedResult(selectedResultKey)}
+            serpListData={this.state.serpListData.serpList} />
         </div>
-        <ResultDetail selectedResult={this.state.selectedResult.datasequences[0].datapoints} selectedResultTitle={this.state.selectedResult.title} />
-        <h3>Select SERP</h3>
-        <SerpList
-          onResultSelect={selectedResultKey => this.updateDetailedResult(selectedResultKey)}
-          serpListData={this.state.serpListData.serpList} />
+        <div className="footer col-md-12"><p>SERP monster is a React powered SERP data visualation app by Clear Desire. For more information on Clear Desire please visit our <a href="http://www.cleardesire.co.uk">website.</a></p></div>
       </div>
     );
   }
