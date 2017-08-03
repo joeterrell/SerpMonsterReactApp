@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const SerpListItem = ({onResultSelect, serpResult, url, resultKey}) => {
+class SerpListItem extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <li className="list-group-item" onClick={() => onResultSelect(resultKey)}>
-      <div className="video-list media">
-        <div className="media-body">
-          <div>"{serpResult}"</div>
+    this.state = {
+      active: false
+    }
+  };
+
+  toggleActive() {
+    debugger;
+    this.setState({active: !this.state.active});
+  }
+
+  render() {
+    return (
+      <li className="list-group-item" data-active={this.state.active} onClick={() => {
+        this.props.onResultSelect(this.props.resultKey)
+        this.toggleActive()
+      }}>
+        <div className="video-list media">
+          <div className="media-body">
+            <div>"{this.props.serpResult}"</div>
+          </div>
         </div>
-      </div>
-    </li>
-  );
+      </li>
+    );
+  }
 };
 
 export default SerpListItem;

@@ -66,14 +66,9 @@
       "key": 12
     },
     {
-      "serpKeyword": "drifting video",
-      "serpUrl": "./data/daigo-saito.json",
-      "key": 13
-    },
-    {
       "serpKeyword": "drift king",
       "serpUrl": "./data/daigo-saito.json",
-      "key": 14
+      "key": 13
     }
   ]
 }

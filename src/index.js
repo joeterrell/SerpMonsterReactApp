@@ -9,14 +9,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedResult: this.fetchDefaultDetailedResult(),
-      serpListData: this.fetchSERPList()
+      selectedResult: this.fetchDetailedResult(),
+      serpListData: this.fetchSERPList(),
+      localSerpData: false
     };
   }
 
-
-
-  fetchDefaultDetailedResult(key) {
+  fetchDetailedResult(key) {
     if (!key) {
       key = 0;
     }
@@ -29,20 +28,21 @@ class App extends Component {
   }
 
   updateDetailedResult(selectedResultKey) {
-    const newResult = this.fetchDefaultDetailedResult(selectedResultKey);
-    this.setState({selectedResult: newResult}); // can't find my "module", path issue
+    const newResult = this.fetchDetailedResult(selectedResultKey);
+    this.setState({selectedResult: newResult});
   }
 
   render() {
     return (
       <div className='grid-container'>
-        <div className="col-md-12">
+        <div className='col-md-12'>
           <ResultDetail selectedResult={this.state.selectedResult.datasequences[0].datapoints} selectedResultTitle={this.state.selectedResult.title} />
           <SerpList
             onResultSelect={selectedResultKey => this.updateDetailedResult(selectedResultKey)}
-            serpListData={this.state.serpListData.serpList} />
+            serpListData={this.state.serpListData.serpList}
+          />
         </div>
-        <div className="footer col-md-12"><p>SERP monster is a React powered SERP data visualation app by Clear Desire. For more information on Clear Desire please visit our <a href="http://www.cleardesire.co.uk">website.</a></p></div>
+        <div className='footer col-md-12'><p>SERP monster is a React powered SERP data visualation app by Clear Desire. For more information on Clear Desire please visit our <a href="http://www.cleardesire.co.uk">website.</a></p></div>
       </div>
     );
   }
