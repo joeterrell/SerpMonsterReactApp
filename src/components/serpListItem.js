@@ -10,16 +10,19 @@ class SerpListItem extends Component {
   };
 
   toggleActive() {
-    debugger;
     this.setState({active: !this.state.active});
   }
 
   render() {
     return (
-      <li className="list-group-item" data-active={this.state.active} onClick={() => {
-        this.props.onResultSelect(this.props.resultKey)
-        this.toggleActive()
-      }}>
+      <li
+        className="list-group-item"
+        data-active={this.props.active}
+        onClick={() => {
+          this.props.onResultSelect(this.props.resultKey)
+          this.props.handleSerpSelected(this.props.resultKey)
+        }
+      }>
         <div className="video-list media">
           <div className="media-body">
             <div>"{this.props.serpResult}"</div>
