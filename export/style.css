@@ -17,37 +17,18 @@ html body {
   color: #ea0c0c;
 }
 
-.video-container {
-  height: 100%;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.video-background {
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100vh;
-  height: auto;
-  left: 0;
-  opacity: 0.6;
-  position: absolute;
-}
-
 .header.col-md-12 {
   background: rgba(240,16,25,0.9);
-  border-bottom: 1px solid #ddd;
   position: fixed;
   padding: 0px 20px 0;
   text-align: center;
   top: 0px;
+  width: 100%;
   z-index: 1;
 }
 
 .header h1 {
-  background: url('../media/serp-monster-logo-white.png') no-repeat 0 0;
+  background: url('../media/serp-monster-logo-white-icon.png') no-repeat 0 0;
   height: 56px;
   margin: 0 auto;
   text-indent: -9999px;
@@ -64,11 +45,14 @@ html body {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding-top: 20px;
 }
 
 .result-detail h2 {
-  color: #fff;
+  padding: 20px 10px 5px;
+}
+
+.list-group {
+  overflow: hidden;
 }
 
 .grid-container .list-group-item {
@@ -101,4 +85,18 @@ html body {
   margin: 20px 0 0;
   padding: 15px 0 0;
   text-align: center;
+}
+
+@media(min-width: 100px) and (max-width: 768px) {
+  .result-detail h2 {
+    font-size: 1.5em;
+  }
+  .grid-container .list-group {
+    margin-top: 10px;
+    padding: 0;
+  }
+  .grid-container .list-group-item {
+    float: none;
+    margin: 0 0 10px;
+  }
 }

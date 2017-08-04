@@ -65,7 +65,7 @@ class ResultDetail extends Component {
   render() {
     return (
       <div className="result-detail col-md-9">
-        <div id="chartContainer">
+        <div>
           <h2>Search term: "{this.props.selectedResultTitle}"</h2>
           <div id='chartPlaceholderWrapper'>
             <canvas id='chartPlaceholder' width='400' height='400'></canvas>
