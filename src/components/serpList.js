@@ -19,7 +19,6 @@ class SerpList extends Component {
     var activeState = false;
     const _this = this;
     const SerpItems = this.state.localData.map(function(serpResults) {
-      debugger;
       if (_this.state.selectedComponentKey !== null) {
         activeState = serpResults.key === _this.state.selectedComponentKey
         ? true

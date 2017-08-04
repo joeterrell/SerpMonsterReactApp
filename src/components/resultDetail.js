@@ -4,40 +4,45 @@ import Chart from 'chart.js';
 class ResultDetail extends Component {
   constructor(props) {
     super(props);
-
   }
 
   renderChart = () => {
+    this.destroyActiveChart();
     const SerpTitle = this.props.selectedResultTitle;
-    const ChartElement = document.getElementById("myChart");
-    const yAxisData = [], xAxisData = [];
-    const updateLocalData = this.props.selectedResult.map(function(title, value, index) {
-      if (value > 50) {
-        yAxisData.push(title.value);
-        xAxisData.push(title.title);
-      }
-    });
-    const myChart = new Chart(ChartElement, {
-      type: 'line',
-      data: {
-        labels: xAxisData,
-        datasets: [{
-          label: '"' + SerpTitle + '" SERP Progress',
-          data: yAxisData,
-          backgroundColor: 'rgba(239, 4, 13, 0.2)',
-          borderColor: 'rgb(239, 4, 13)'
-      }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero:true
-            }
-          }]
+    const ChartPlaceholder = document.getElementById("chartPlaceholder");
+    if (ChartPlaceholder) {
+      const yAxisData = [], xAxisData = [];
+      const updateLocalData = this.props.selectedResult.map(function(title, value, index) {
+        if (value > 50) {
+          yAxisData.push(title.value);
+          xAxisData.push(title.title);
         }
-      }
-    });
+      });
+      window.activeChart = new Chart(ChartPlaceholder, {
+        type: 'line',
+        data: {
+          labels: xAxisData,
+          datasets: [{
+            label: '"' + SerpTitle + '" SERP Progress',
+            data: yAxisData,
+            backgroundColor: 'rgba(239, 4, 13, 0.2)',
+            borderColor: 'rgb(239, 4, 13)'
+        }]
+        },
+        options: {
+          tooltips: {
+            enabled: true
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }]
+          }
+        }
+      });
+    }
   }
 
   componentDidUpdate = () => {
@@ -51,12 +56,20 @@ class ResultDetail extends Component {
     this.renderChart();
   }
 
+  destroyActiveChart = () => {
+    if (window.activeChart) {
+      window.activeChart.destroy();
+    }
+  }
+
   render() {
     return (
       <div className="result-detail col-md-9">
-        <div className="">
+        <div id="chartContainer">
           <h2>Search term: "{this.props.selectedResultTitle}"</h2>
-          <canvas id="myChart" width="400" height="400"></canvas>
+          <div id='chartPlaceholderWrapper'>
+            <canvas id='chartPlaceholder' width='400' height='400'></canvas>
+          </div>
         </div>
       </div>
     );

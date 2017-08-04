@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ResultDetail from './components/resultDetail';
@@ -9,26 +8,27 @@ class App extends Component {
     super(props);
 
     this.state = {
+      localSerpData: false,
+      cachedResultsData: null,
       selectedResult: this.fetchDetailedResult(),
-      serpListData: this.fetchSERPList(),
-      localSerpData: false
+      serpListData: this.fetchSERPList()
     };
   }
 
-  fetchDetailedResult(key) {
+  fetchDetailedResult = (key) => {
+    let serpData = require('../data/serp-results-data.json');
     if (!key) {
       key = 0;
     }
-    const serpData = require('../data/serp-results-data.json');
     return serpData.serpResults[key];
   }
 
-  fetchSERPList() {
+  fetchSERPList = () => {
     return require('../data/serpList.json');
   }
 
-  updateDetailedResult(selectedResultKey) {
-    const newResult = this.fetchDetailedResult(selectedResultKey);
+  updateDetailedResult = (selectedResultKey) => {
+    let newResult = this.fetchDetailedResult(selectedResultKey);
     this.setState({selectedResult: newResult});
   }
 
