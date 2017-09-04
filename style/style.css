@@ -64,6 +64,13 @@ html body {
   margin: 0 0 10px 10px;
 }
 
+
+.grid-container .list-group-item:nth-child(1) {
+  background: rgba(240,16,25,0.9);
+  border-color: rgba(240,16,25,0.9);
+  color: #fff;
+}
+
 .list-group-item:hover {
   color: #ea0c0c;
 }
@@ -86,6 +93,18 @@ html body {
   margin: 20px 0 0;
   padding: 15px 0 0;
   text-align: center;
+}
+
+.updated-data .grid-container .list-group-item:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333333;
+}
+
+.updated-data .grid-container .list-group-item:nth-child(1)[data-active="true"] {
+  background: rgba(240,16,25,0.9);
+  border-color: rgba(240,16,25,0.9);
+  color: #fff;
 }
 
 @media(min-width: 100px) and (max-width: 768px) {

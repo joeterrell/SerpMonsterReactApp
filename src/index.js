@@ -8,8 +8,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      localSerpData: false,
-      cachedResultsData: null,
       selectedResult: this.fetchDetailedResult(),
       serpListData: this.fetchSERPList()
     };
@@ -30,6 +28,15 @@ class App extends Component {
   updateDetailedResult = (selectedResultKey) => {
     let newResult = this.fetchDetailedResult(selectedResultKey);
     this.setState({selectedResult: newResult});
+    this.addClass('updated-data');
+  }
+
+  removeClass = (cssClass) => {
+    document.body.classList.remove(cssClass);
+  }
+
+  addClass = (cssClass) => {
+    document.body.classList.add(cssClass);
   }
 
   render() {
