@@ -28,11 +28,11 @@ html body {
 }
 
 .header h1 {
-  background: url('../media/serp-monster-logo-white-icon.png') no-repeat 0 0;
+  background: url('../media/serp-monster-logo-white-icon.png') no-repeat center center;
   height: 56px;
   margin: 0 auto;
   text-indent: -9999px;
-  width: 421px;
+  width: 100%;
 }
 
 .details {
@@ -70,6 +70,7 @@ html body {
 
 .list-group-item[data-active="true"] {
   background: rgba(240,16,25,0.9);
+  border-color: rgba(240,16,25,0.9);
   color: #fff;
 }
 
@@ -88,8 +89,12 @@ html body {
 }
 
 @media(min-width: 100px) and (max-width: 768px) {
+  .container {
+    margin: 15px 0;
+  }
   .result-detail h2 {
     font-size: 1.5em;
+    padding: 20px 0px 5px;
   }
   .grid-container .list-group {
     margin-top: 10px;
@@ -98,5 +103,14 @@ html body {
   .grid-container .list-group-item {
     float: none;
     margin: 0 0 10px;
+  }
+  .footer {
+    border-radius: 0;
+  }
+}
+
+@media(min-width: 100px) and (max-width: 380px) {
+  .header h1 {
+    background: url('../media/serp-monster-logo-white-icon-small.png') no-repeat center center;
   }
 }

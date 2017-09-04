@@ -17,7 +17,7 @@ class SerpListItem extends Component {
       }>
         <div className="video-list media">
           <div className="media-body">
-            <div>"{this.props.serpResult}"</div>
+            <div>SERP: "{this.props.serpResult}"</div>
           </div>
         </div>
       </li>
